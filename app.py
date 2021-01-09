@@ -1,13 +1,11 @@
 from flask import Flask, render_template
 import requests
-import json
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def home():
-    print("Something")
     url = 'https://itunes.apple.com/search?term=guns+and+roses&limit=5'
     data = requests.get(url)
     response = data.json()
