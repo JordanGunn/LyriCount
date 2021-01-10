@@ -1,19 +1,12 @@
-from flask import Flask, render_template
-import requests
-import json
+from flask import Flask
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def home():
-    print("Something")
-    url = 'https://itunes.apple.com/search?term=guns+and+roses&limit=5'
-    data = requests.get(url)
-    response = data.json()
-    thing = response["results"][0]["trackName"]
-    return render_template("base.html", thing=thing)
+def hello_world():
+    return 'Hello World!'
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run()
