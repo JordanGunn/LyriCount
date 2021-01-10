@@ -35,3 +35,7 @@ def get_top_artists():
             artists_processed.append(element)
 
     return artists_processed
+
+
+if __name__ == "__main__":
+    get_top_artists()
