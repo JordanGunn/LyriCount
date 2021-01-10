@@ -17,7 +17,7 @@
     </div>
 
     {% if form.is_submitted %}
-        <div class="image-container">{{ data|title }}</div>
+        <div class="image-container">{{ url_for('static', filename="plot.png"}}</div>
     {% endif %}
 
 </body>
