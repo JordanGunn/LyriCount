@@ -22,7 +22,7 @@ def artist_used_most(search_word: str, artist_lyric_list: list):
             word_count_list.append(word_counts)
         except KeyError:
             continue
-    word_count_list = sorted(word_count_list, key=lambda item : item['Lyrics count'], reverse=True)
+    word_count_list = sorted(word_count_list, key=lambda item: item['Lyrics count'], reverse=True)
 
     return word_count_list[0:5]
 
