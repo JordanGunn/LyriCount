@@ -7,4 +7,10 @@ def get_lyrics():
         json_obj = json.load(file_object)
     print(len(json_obj))
 
-get_lyrics()
+
+def main():
+    get_lyrics()
+
+
+if __name__ == '__main__':
+    main()
