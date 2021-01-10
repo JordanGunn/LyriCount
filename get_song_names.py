@@ -2,23 +2,33 @@ import requests
 import json
 
 
-def get_song_names():
-    url = f'https://itunes.apple.com/search?term=guns+and+roses&limit=5'
-    data = requests.get(url)
-    response = data.json()
-    thing = response["results"][0]["trackName"]
-    return thing
+def parse_artist_name(artist_name: str) -> str:
+
+    """
+    Parse artist name for url insertion.
+
+    :param artist_name:
+    :return:
+    """
+
+    split_artist_name = artist_name.split(" ")
+    if len(split_artist_name) > 1:
+        parsed_artist_name = "+".join(split_artist_name)
+        return parsed_artist_name
+    else:
+        return artist_name
 
 
-def parse_artist_name(artist_name):
-    pass
+def get_artist_songs(artist_name):
 
+    """
+    Get all songs by an artist.
 
-"guns+and+roses"
+    :param artist_name: The artist name
+    :return:
+    """
 
-
-def get_artist_songs():
-    url = 'https://itunes.apple.com/search?term=guns+and+roses&entity=musicTrack&limit=200'
+    url = f'https://itunes.apple.com/search?term={artist_name}&entity=musicTrack&limit=200'
     data = requests.get(url)
     response = data.json()
     artist = response["results"]
@@ -30,7 +40,9 @@ def get_artist_songs():
 
 
 def main():
-    get_artist_songs()
+
+    artist = parse_artist_name("")
+    get_artist_songs(None)
 
 
 if __name__ == '__main__':
