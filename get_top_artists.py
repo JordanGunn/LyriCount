@@ -24,7 +24,7 @@ def get_top_artists() -> list:
     """
 
     with requests.get(TOP_URL()) as top100:
-        # Create BeautifulSoup object from
+        # Create BeautifulSoup object
         data = BeautifulSoup(top100.text, "html.parser")
         # get divs by class
         divs = data.findAll("div", {"class": "item-details__title"})
