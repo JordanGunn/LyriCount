@@ -7,6 +7,8 @@ from wtforms import StringField
 from wtforms.validators import InputRequired, ValidationError
 from get_top_artists import get_top_artists
 from form import WordSearchForm
+from artist_used_most import artist_used_most, open_file
+from make_pie_chart import make_pie_chart
 
 app = Flask(__name__)
 
@@ -22,6 +24,7 @@ def search():
     form = WordSearchForm()
     if form.validate_on_submit():
         query = request.form['word_search']
+        make_pie_chart(artist_used_most(query, open_file()))
         return render_template("base.html", data=query, form=form)
     return render_template("base.html", form=form)
 
