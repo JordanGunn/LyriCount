@@ -5,7 +5,7 @@ import json
 
 def get_song_name():
     artists = get_top_artists(TOP_URL())
-    SIZE = 200
+    SIZE = 5
     song_list = []
     song_dict = {}
     for artist_name in artists:
