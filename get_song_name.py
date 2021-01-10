@@ -1,10 +1,10 @@
-from get_top_artists import TOP_URL, get_top_artists
+from get_top_artists import get_top_artists
 import requests
 import json
 
 
 def get_song_name():
-    artists = get_top_artists(TOP_URL())
+    artists = get_top_artists()
     SIZE = 5
     song_list = []
     song_dict = {}
