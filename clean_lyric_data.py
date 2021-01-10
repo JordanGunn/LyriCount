@@ -1,6 +1,7 @@
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import json
+import ast
 
 
 def GENDER_WORDS():
@@ -32,11 +33,11 @@ def dump_filtered_lyrics(filtered_lyrics):
 
 # lyrics = []
 
-with open("artist_lyrics.json", "r", errors="ignore") as fp:
+with open("artist_lyrics.json", "r") as fp:
     lyrics = json.load(fp)
     filtered = {
         artist: filter_lyrics(words) for words, artist in lyrics.items()
     }
 
-# dump_filtered_lyrics(filtered)
+dump_filtered_lyrics(filtered)
 

@@ -25,9 +25,9 @@ def get_lyrics() -> None:
     json_obj = open_json_file()
     artist_lyrics_list = []
     for key, value in json_obj.items():
-        artist_lyrics_dict = {'Artist': key}
         key = key.replace(' ', '%20')
         whole_lyrics = ''
+        artist_lyrics_dict = {}
         for index in range(len(value)):
             value[index] = value[index].replace(' ', '%20')
             value[index] = re.sub(r'\(.*?\)', '', value[index])
@@ -38,7 +38,7 @@ def get_lyrics() -> None:
             lyrics = re.sub(r'<.*?>|\[|]', '', lyrics)
             if len(lyrics) > 0:
                 whole_lyrics += lyrics.replace('\n', ' ')
-                artist_lyrics_dict['Lyrics'] = whole_lyrics
+                artist_lyrics_dict[key] = whole_lyrics
         artist_lyrics_list.append(artist_lyrics_dict)
 
     write_json_file(artist_lyrics_list)
