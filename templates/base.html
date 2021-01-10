@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LyriCount</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
 </head>
 <body>
     <div class="form-container">
+        <span class="description">Search for a lyric/word. LyriCount will show you which lyrics are used the most based
+            on Musicians.</span>
         <form action="{{ url_for('search') }}" method="POST">
 
             {{ form.word_search.label }} {{ form.word_search }}
