@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 body{
-    background: linear-gradient(#141e30, #243b55);
+    /*background: linear-gradient(#141e30, #243b55);*/
+    background: #172B41;
     height: 1000px;
     font-family: 'Open Sans', sans-serif;
     display: flex;
@@ -14,6 +15,7 @@ label{
     font-size: 2rem;
     margin-right: 2rem;
     color: white;
+    margin-bottom: 0px;
 
 }
 
@@ -32,37 +34,32 @@ label{
 }
 
 #submit{
+    font-family: 'Open Sans', sans-serif;
     height: 2rem;
     width: 7rem;
     margin-left: 30px;
-    border: transparent;
+    border:  0;
     background-color: transparent;
     opacity: 0;
-    transition: all 0.5s;
+    transition: all 2s ease-in-out;
     color: transparent;
-    animation: blink 3s infinite;
+    animation: blink 2s infinite;
 
 }
 
 @keyframes blink {
-  40% {
-    opacity: 1;
+  1% {
+    opacity: 0;
       color: transparent;
   }
-  41% {
-    opacity: 0.8;
-  }
-  42% {
+
+
+  50% {
     opacity: 1;
   }
-  43% {
-    opacity: 0.7;
-  }
-  44% {
-    opacity: 1;
-  }
-  45% {
-    opacity: 0.7;
+
+  100% {
+    opacity: 0;
       color:white;}
 }
 
@@ -70,7 +67,6 @@ label{
     border: solid white 1px;
     opacity: 100%;
     color: white;
-    font-family: 'Open Sans', sans-serif;
 
 }
 
@@ -80,20 +76,20 @@ label{
     align-items: center;
     width: 90%;
     height: 10%;
-    background-color: rgba(0,0,0,.5);
+    background-color: #172B41;
     border-radius: 10px;
     box-shadow: 0 0 0 transparent, 0 0 5px #25334d,
-    0 0 10px #141e30, 0 0 50px #25334d, 0 0 10px #141e30,
-    0 0 30px #141e30, 0 0 200px #354563, 0 0 600px #354563;
+    0 0 5px #080c13, 0 0 5px #070c15, 0 0 10px #2b3f62,
+    0 0 30px #27354e, 0 0 100px #455c85, 0 0 100px #2d4166;
     margin-bottom: 3vh;
 }
 
 .image-container{
-  background-color: rgba(0,0,0,.5);
+  background-color: #172B41;
     border-radius: 10px;
     box-shadow: 0 0 0 transparent, 0 0 5px #25334d,
-    0 0 10px #141e30, 0 0 50px #25334d, 0 0 10px #141e30,
-    0 0 30px #141e30, 0 0 200px #354563, 0 0 600px #354563;
+    0 0 5px #080c13, 0 0 5px #070c15, 0 0 10px #2b3f62,
+    0 0 30px #27354e, 0 0 100px #455c85, 0 0 100px #2d4166;
     width: 90%;
     height: 60%;
     display: flex;

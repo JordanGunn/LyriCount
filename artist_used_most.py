@@ -28,7 +28,7 @@ def artist_used_most(search_word: str, artist_lyric_list: list):
 
 
 def open_file():
-    filename = './artist_lyrics.json'
+    filename = 'artist_lyrics.json'
     with open(filename) as file_object:
         json_obj = json.load(file_object)
     return json_obj

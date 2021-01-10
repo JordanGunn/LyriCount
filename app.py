@@ -18,7 +18,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route("/", methods=["GET", "POST"])
 def search():
     form = WordSearchForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit() and request.form['word_search'].strip():
         query = request.form['word_search']
         make_pie_chart(artist_used_most(query.lower(), open_file()))
         return render_template("base.html", data=query.lower(), form=form)
