@@ -23,6 +23,7 @@ def make_pie_chart(artist_counts):
         axis.pie(counts, labels=labels, autopct='%1.1f%%', normalize=True)
         axis.axis('equal')
         plt.rc('font', family='Franklin Gothic Book')
+        plt.title('Which artist used the word the most?')
         plt.tight_layout()
         plt.savefig(r"static/plot.png")
         plot_img = Image.open(r"static/plot.png")
