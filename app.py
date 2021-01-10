@@ -1,17 +1,26 @@
 from flask import Flask, render_template
 import requests
+import json
 
 app = Flask(__name__)
 
 
-@app.route('/')
-def home():
-    url = 'https://itunes.apple.com/search?term=guns+and+roses&limit=5'
+def get_artist_songs():
+    url = 'https://itunes.apple.com/search?term=guns+and+roses&entity=musicTrack&limit=200'
     data = requests.get(url)
     response = data.json()
-    thing = response["results"][0]["trackName"]
+    songs = response["results"]
+    filename = "artist_songs.json"
+    with open(filename, "w+") as file_object:
+        json.dump(songs, file_object)
+
+
+@app.route('/')
+def home():
     return render_template("base.html", thing=thing)
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    get_artist_songs()
+    app.run()
+
