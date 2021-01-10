@@ -3,7 +3,12 @@ import requests
 import json
 
 
-def get_song_name():
+def get_song_name() -> None:
+    """
+    Get the name of songs by artist's name from the Itunes API.
+
+    :return: None
+    """
     artists = get_top_artists()
     SIZE = 200
     song_dict = {}
@@ -20,7 +25,16 @@ def get_song_name():
                 pass
         song_dict[artist_name.title().replace('+', ' ')] = list(song_list)
 
-    filename = "artist_songs_dict.json"
+    write_json_file(song_dict)
+
+
+def write_json_file(song_dict: dict) -> None:
+    """
+    Write a new JSON file that includes the information of artists and the title of songs
+
+    :return: None
+    """
+    filename = "artist_songs_dict_test.json"
     with open(filename, "w+") as file_object:
         json.dump(song_dict, file_object)
 
