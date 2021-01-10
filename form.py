@@ -9,7 +9,7 @@ class WordSearchForm(FlaskForm):
     """Create the form."""
 
     word_search = StringField('Search', validators=[InputRequired()])
-    submit = SubmitField('Search')
+    submit = SubmitField('Lyrics!')
 
     #
     # @staticmethod

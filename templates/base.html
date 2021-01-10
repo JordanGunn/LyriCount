@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
 </head>
 <body>
-    <form action="{{ url_for('search') }}" method="POST">
-    {{ form.word_search.label }}: {{ form.word_search }}
-    {{ form.csrf_token }}
-    {{ form.submit }}
+    <div class="form-container">
+        <form action="{{ url_for('search') }}" method="POST">
+
+            {{ form.word_search.label }} {{ form.word_search }}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+
+        </form>
+    </div>
 
     {% if form.is_submitted %}
-        <div>{{ data }}</div>
+        <div class="image-container">{{ data|title }}</div>
     {% endif %}
 
 </body>

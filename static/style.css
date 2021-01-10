@@ -1,1 +1,102 @@
-p {}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body{
+    background: linear-gradient(#141e30, #243b55);
+    height: 1000px;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+label{
+    font-size: 2rem;
+    margin-right: 2rem;
+    color: white;
+
+}
+
+#word_search{
+    height: 1.5rem;
+    size: 40px;
+    border-radius: 30px;
+    border: transparent;
+    text-align: center;
+
+}
+
+#word_search:focus{
+    outline:none;
+
+}
+
+#submit{
+    height: 2rem;
+    width: 7rem;
+    margin-left: 30px;
+    border: transparent;
+    background-color: transparent;
+    opacity: 0;
+    transition: all 0.5s;
+    color: transparent;
+    animation: blink 3s infinite;
+
+}
+
+@keyframes blink {
+  40% {
+    opacity: 1;
+      color: transparent;
+  }
+  41% {
+    opacity: 0.8;
+  }
+  42% {
+    opacity: 1;
+  }
+  43% {
+    opacity: 0.7;
+  }
+  44% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.7;
+      color:white;}
+}
+
+#submit:hover{
+    border: solid white 1px;
+    opacity: 100%;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 10%;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 10px;
+    box-shadow: 0 0 0 transparent, 0 0 5px #25334d,
+    0 0 10px #141e30, 0 0 50px #25334d, 0 0 10px #141e30,
+    0 0 30px #141e30, 0 0 200px #354563, 0 0 600px #354563;
+    margin-bottom: 3vh;
+}
+
+.image-container{
+  background-color: rgba(0,0,0,.5);
+    border-radius: 10px;
+    box-shadow: 0 0 0 transparent, 0 0 5px #25334d,
+    0 0 10px #141e30, 0 0 50px #25334d, 0 0 10px #141e30,
+    0 0 30px #141e30, 0 0 200px #354563, 0 0 600px #354563;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
