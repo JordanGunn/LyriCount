@@ -1,23 +1,42 @@
-def artist_used_most(search_word: str, artist_lyric_dict: dict) -> list:
+import json
+
+
+def artist_used_most(search_word: str, artist_lyric_list: list):
 
     """
     Get top 5 artists who used word most.
 
     :param search_word: From input box on homepage of Flask app.
-    :param artist_lyric_dict: Dictionary of artists and all their lyrics.
+    :param artist_lyric_list: List of dictionaries of artists and all their lyrics.
     :return: List of artists and word count.
     """
 
     # get the word counts of all artists
-    word_counts = {
-        artist: lyrics.count(search_word) for lyrics, artist in artist_lyric_dict.items()
-    }
+    word_count_list = []
+    for index in range(len(artist_lyric_list)):
+        try:
+            word_counts = {'Artist': artist_lyric_list[index]['Artist'],
+                           'Lyrics count': artist_lyric_list[index]['Lyrics'].lower().count(search_word)}
+            word_count_list.append(word_counts)
+        except KeyError:
+            continue
+    word_count_list = sorted(word_count_list, key=lambda item : item['Lyrics count'], reverse=True)
 
-    # sort the dictionary for word counts
-    sorted_counts = {
-        k: v for k, v in sorted(word_counts.items(), key=lambda item: item[1])
-    }
+    return word_count_list[0:5]
 
-    # reverse and return top 5
-    return list(reversed(list(sorted_counts))[0:5])
 
+def open_file():
+    filename = 'artist_lyrics.json'
+    with open(filename) as file_object:
+        json_obj = json.load(file_object)
+    return json_obj
+
+
+def main():
+    search_word = "Home".lower()
+    artist_lyric_dict = open_file()
+    artist_used_most(search_word, artist_lyric_dict)
+
+
+if __name__ == '__main__':
+    main()

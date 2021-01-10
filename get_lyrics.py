@@ -53,8 +53,7 @@ def write_json_file(artist_lyrics_list: list) -> None:
     """
     filename = "artist_lyrics.json"
     with open(filename, "w+") as file_object:
-        for length in range(len(artist_lyrics_list)):
-            json.dump(artist_lyrics_list[length], file_object)
+        json.dump(artist_lyrics_list, file_object)
 
 
 def main():
