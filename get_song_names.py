@@ -8,10 +8,23 @@ def get_song_names():
     thing = response["results"][0]["trackName"]
     return thing
 
-def parse_artist_name(artist_name):
-    pass
 
-"guns+and+roses"
+def parse_artist_name(artist_name: str) -> str:
+
+    """
+    Parse artist name for url insertion.
+
+    :param artist_name:
+    :return:
+    """
+
+    split_artist_name = artist_name.split(" ")
+    if len(split_artist_name) > 1:
+        parsed_artist_name = "+".join(split_artist_name)
+        return parsed_artist_name
+    else:
+        return artist_name
+
 
 def get_artist_songs():
     url = 'https://itunes.apple.com/search?term=guns+and+roses&entity=musicTrack&limit=200'
