@@ -17,6 +17,7 @@ def make_pie_chart(artist_word_counts):
     plt.tight_layout()
     plt.savefig(r"static/plot.png")
 
+
 make_pie_chart([
     ("kanye", 65),
     ("taylor swift", 25),
