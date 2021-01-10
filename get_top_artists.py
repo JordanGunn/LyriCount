@@ -29,5 +29,10 @@ def get_top_artists(url):
         divs = data.findAll("div", {"class": "c-chart__table--title"})
         # get the artist tags in the div
         artists = [div.findAll("p")[0].text for div in divs]
+        # Process the artist's name for searching
+        artists_processed = []
+        for element in artists:
+            element = str(element).lower().replace(' ', '+')
+            artists_processed.append(element)
 
-    return artists
+    return artists_processed
