@@ -34,7 +34,6 @@ def get_top_artists() -> list:
         artists_processed = [
             artist.lower().replace(" ", "+") for artist in artists
         ]
-    print(artists_processed[-1])
     return artists_processed
 
 
