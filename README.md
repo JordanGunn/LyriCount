@@ -1,4 +1,4 @@
-# LyricThing
+# LyriCount
 For nwHacks2021
 
 Nick, Mike, Jordan
