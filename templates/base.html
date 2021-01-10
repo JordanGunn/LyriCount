@@ -9,6 +9,10 @@
     {{ form.word_search.label }}: {{ form.word_search }}
     {{ form.csrf_token }}
     {{ form.submit }}
-    </form>
+
+    {% if form.is_submitted %}
+        <div>{{ data }}</div>
+    {% endif %}
+
 </body>
 </html>

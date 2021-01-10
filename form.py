@@ -8,7 +8,7 @@ class WordSearchForm(FlaskForm):
 
     """Create the form."""
 
-    word_search = StringField('search', validators=[InputRequired()])
+    word_search = StringField('Search', validators=[InputRequired()])
     submit = SubmitField('Search')
 
     #
