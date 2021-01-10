@@ -28,10 +28,10 @@ def get_top_artists():
         divs = data.findAll("div", {"class": "item-details__title"})
         # get the artist tags in the div
         artists = [div.text for div in divs]
+        
+        artists_processed = []
+        for element in artists:
+            element = str(element).lower().replace(' ', '+')
+            artists_processed.append(element)
 
-    return artists
-
-
-if __name__ == "__main__":
-
-    print(get_top_artists())
+    return artists_processed
