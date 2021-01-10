@@ -5,10 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="{{ url_for('search') }}" method="POST>
+    <form action="{{ url_for('search') }}" method="POST">
     {{ form.word_search.label }}: {{ form.word_search }}
     {{ form.csrf_token }}
     {{ form.submit }}
-    </form>
+
+    {% if form.is_submitted %}
+        <div>{{ data }}</div>
+    {% endif %}
+
 </body>
 </html>
