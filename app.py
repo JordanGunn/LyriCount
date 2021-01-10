@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request
 import requests
 import json
@@ -21,8 +20,8 @@ def search():
     form = WordSearchForm()
     if form.validate_on_submit():
         query = request.form['word_search']
-        make_pie_chart(artist_used_most(query, open_file()))
-        return render_template("base.html", data=query, form=form)
+        make_pie_chart(artist_used_most(query.lower(), open_file()))
+        return render_template("base.html", data=query.lower(), form=form)
     return render_template("base.html", form=form)
 
 
