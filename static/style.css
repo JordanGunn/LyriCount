@@ -49,26 +49,30 @@ label{
     border:  0;
     background-color: transparent;
     opacity: 0;
-    transition: all 2s ease-in-out;
+    transition: all 1.5s ease-in-out;
     color: transparent;
-    animation: blink 2s infinite;
+    animation: blink 2s infinite ease-in-out;
 
 }
 
 @keyframes blink {
-  1% {
-    opacity: 0;
-      color: transparent;
-  }
+    1% {
+        opacity: 0;
+        color: transparent;
+        outline: solid 0 transparent;
+    }
 
 
-  50% {
-    opacity: 1;
-  }
+    50% {
+        opacity: 1;
+        outline: solid 1px white;
+    }
 
-  100% {
-    opacity: 0;
-      color:white;}
+    100% {
+        opacity: 0;
+        color: white;
+        outline:solid 0 transparent;
+    }
 }
 
 #submit:hover{
@@ -87,10 +91,11 @@ label{
     height: 15%;
     background-color: #172B41;
     border-radius: 10px;
-    box-shadow: 0 0 0 transparent, 0 0 5px #25334d,
-    0 0 5px #080c13, 0 0 5px #070c15, 0 0 10px #2b3f62,
-    0 0 30px #27354e, 0 0 100px #455c85, 0 0 100px #2d4166;
-    margin-bottom: 3vh;
+    /*box-shadow: 0 0 0 transparent, 0 0 5px #25334d,*/
+    /*0 0 5px #080c13, 0 0 5px #070c15, 0 0 10px #2b3f62,*/
+    /*0 0 30px #27354e, 0 0 100px #455c85, 0 0 100px #2d4166;*/
+    margin-bottom: 5vh;
+
 }
 
 .image-container{
