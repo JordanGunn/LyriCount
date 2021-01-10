@@ -1,6 +1,11 @@
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+import nltk
 import json
+
+
+nltk.download('punkt')
+nltk.download('stopwords')
 
 
 def GENDER_WORDS():
@@ -15,8 +20,8 @@ def GENDER_WORDS():
 def filter_lyrics(lyrics):
 
     stop_words = set(stopwords.words("english"))
-    special_chars = {"'", ",", "-", "!", "/", "\\", "?", ":", ";"}
-    stopwords.update(special_chars)
+    # special_chars = {"'", ",", "-", "!", "/", "\\", "?", ":", ";"}
+    # stopwords.union(special_chars)
     word_tokens = word_tokenize(lyrics)
     filtered_lyrics = [lyric for lyric in word_tokens if lyric not in stop_words]
 
@@ -32,11 +37,17 @@ def dump_filtered_lyrics(filtered_lyrics):
 
 # lyrics = []
 
-with open("artist_lyrics.json", "r", errors="ignore") as fp:
+with open("artist_lyrics.json", "r") as fp:
+    clean_dict = {}
     lyrics = json.load(fp)
-    filtered = {
-        artist: filter_lyrics(words) for words, artist in lyrics.items()
-    }
+    for artist_data in lyrics:
+        try:
+            filtered_lyrics = filter_lyrics(artist_data['Lyrics'])
+        except KeyError:
+            continue
+        clean_dict[artist_data["Artist"]] = filtered_lyrics
 
-# dump_filtered_lyrics(filtered)
+
+
+dump_filtered_lyrics(clean_dict)
 
