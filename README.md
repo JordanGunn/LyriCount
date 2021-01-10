@@ -3,7 +3,7 @@ For nwHacks2021
 
 Nick, Mike, Jordan
 
-![LyriCount Demo](demo/demo.gif)
+![LyriCount Demo](./demo/demo.gif)
 
 ## Inspiration
 Like everyone, we love music. So we wanted to make something simple, silly, and fun. This is our group's first hackathon so we wanted to make something visual and easy to use/implement.
