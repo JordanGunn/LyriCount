@@ -5,9 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-    {% for song in thing %}
-    <div>{{ song }}</div>
-        <br>
-    {% endfor %}
+    <form action="{{ url_for('search') }}" method="POST>
+    {{ form.word_search.label }}: {{ form.word_search }}
+    {{ form.csrf_token }}
+    {{ form.submit }}
+    </form>
 </body>
 </html>
