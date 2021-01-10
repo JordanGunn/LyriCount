@@ -13,8 +13,11 @@ def get_song_name():
         for number in range(SIZE):
             data = requests.get(url)
             response = data.json()
-            songs = response["results"][number]["trackName"]
-            song_list.append(songs)
+            try:
+                songs = response["results"][number]["trackName"]
+                song_list.append(songs)
+            except IndexError:
+                pass
         song_dict[artist_name.title().replace('+', ' ')] = song_list
 
     filename = "artist_songs_dict.json"
