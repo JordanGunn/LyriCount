@@ -1,10 +1,4 @@
 from flask import Flask, render_template, request
-import requests
-import json
-from flask_wtf import FlaskForm
-from wtforms import StringField
-from wtforms.validators import InputRequired, ValidationError
-from get_top_artists import get_top_artists
 from form import WordSearchForm
 from artist_used_most import artist_used_most, open_file
 from make_pie_chart import make_pie_chart
